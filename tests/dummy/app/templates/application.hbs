@@ -1,0 +1,897 @@
+HARI OM 108
+
+<div class="container">
+  <div class="navbar-header">
+    <a class="navbar-brand navbar-brand-custom" href="#">QRP Setup</a>
+  </div>
+</div>
+{{!-- <nav class="navbar navbar-static-top navbar-custom">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand navbar-brand-custom" href="#">QRP Setup</a>
+        </div>
+      </div>
+    </nav>
+<div class="row-offcanvas row-offcanvas-left">
+  <div id="sidebar" class="sidebar-offcanvas">
+      <div class="col-md-12">
+        <h3>Components</h3>
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#wb-map">Map</a></li>
+          <li><a href="#wb-checkbox">Checkbox</a></li>
+          <li><a href="#wb-checkbox-group">Check Box Group</a></li>
+          <li><a href="#wb-radio">Radio</a></li>
+          <li><a href="#wb-datepicker">Datepicker</a></li>
+          <li><a href="#wb-button">Button</a></li>
+          <li><a href="#wb-button">New Button</a></li>
+          <li><a href="#wb-toggle">Toggle</a></li>
+          <li><a href="#wb-tooltip">Flyouts</a></li>
+          <li><a href="#wb-charts">Charts</a></li>
+          <li><a href="#wb-format-time">Format Time Helper</a></li>
+          <li><a href="#wb-selectbox">Select Box</a></li>
+          <li><a href="#wb-textarea">Textarea</a></li>
+          <li><a href="#wb-textbox">Textbox</a></li>
+          <li><a href="#wb-tabs">Tabs</a></li>
+          <li><a href="#wb-file-upload">File Upload</a></li>
+          <li><a href="#wb-menu">Menu</a></li>
+          <li><a href="#wb-rag-box">RAG Box</a></li>
+          <li><a href="#wb-flash-message">Flash Message</a></li>
+          <li><a href="#wb-grid">Grid</a></li>
+          <li><a href="#wb-alert-banner">Alert Banner</a></li>
+          <li><a href="#pagination">Pagination</a></li>
+        </ul>
+      </div>
+  </div>
+  <!--  /Navbar -->
+<div id="main">
+<!-- Editable Grid -->
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Editable wb-grid</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 col-sd-12">
+                    {{wb-button type="primary" action='addMemberToGrid' text='+ Add a Member'}}
+                    {{wb-grid config=clientTeamConfig grid=gridInstance}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Map Component -->
+<div class="container">
+    <div class="panel panel-primary" id="wb-charts">
+        <div class="panel-heading">
+            <h3 class="panel-title">High Map</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+              <div class="col-md-9 col-sd-12">
+                 {{wb-map mapConfig=mapConfig mapDataObj=mapDataObj mapDataClasses=mapDataClasses mapRegion=mapRegion}}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary" id="wb-charts">
+        <div class="panel-heading">
+            <h3 class="panel-title">New Bar Chart </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+              <div class="col-md-9 col-sd-12">
+                  <div style="background-color:lavender;">
+                      <p> Group Bar chart with dummy data.
+                          <br/>
+                      </p>
+                  </div>
+                 {{wb-new-barchart chartData=chartData chartDataSourceConfig=chartDataSourceConfig chartConfig=chartConfig}}
+                 
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary" id="wb-charts">
+        <div class="panel-heading">
+            <h3 class="panel-title"> Charts </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6 col-sd-12">
+                  <div style="background-color:lavender;">
+                      <p> Horizontal Bar chart with dummy data.
+                          <br/>
+                      </p>
+                  </div>
+                 {{wb-barchart max=90 dataSource=barChartData userPrefColor="#569FCC"}}
+
+              </div>
+              <div class="col-md-6 col-sd-12">
+                  <div style="background-color:lavender;">
+                      <p> Radial Gauge with dummy data.
+                          <br/>
+                      </p>
+                  </div>
+
+                  <div>
+                    {{wb-radialgauge averageTAT=7 longestTAT=10 pointerValue=gaugePointerValue}}
+                    <span>
+                      {{wb-textbox  name="pointerInput" type="number" cls="primary"
+                        multiple=true min=0 max=10
+                       labelAlign='inline' fieldLabel = "Enter the Pointer Value:"
+                       placeholder="Please Enter Value" value=gaugePointerValue
+                       disabled=false readonly=false autofocus=false
+                       required=false requiredMsg="Required field" error=false errorMsg=""}}
+                    </span>
+                  </div>
+              </div>
+              <div class="col-md-6 col-sd-12">
+                  <div style="background-color:lavender;">
+                      <p> Ring chart with dummy data.
+                          <br/>
+                      </p>
+                  </div>
+                  {{wb-ringchart dataSource=ringChartData}}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+  <div class="panel panel-default" id="wb-format-time">
+    <div class="panel-heading"><strong>Date Helper</strong></div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p>Date Helper (with javascript date : new Date(2011, 8, 2) with Default Format</p>
+        </div>
+        <div class="col-md-6">
+           {{wb-format-time dateSample}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Date Helper (with javascript date : new Date(2011, 8, 2)</p>
+        </div>
+        <div class="col-md-6">
+           {{wb-format-time dateSample "LL"}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>javascript long value : new Date(1432626518751)</p>
+        </div>
+        <div class="col-md-6">
+           {{wb-format-time dateLong "LL"}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>From Now Option</p>
+        </div>
+        <div class="col-md-6">
+           {{wb-format-time dateLong "LL" 'fromNow'}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Calender Option</p>
+        </div>
+        <div class="col-md-6">
+           {{wb-format-time dateLong "LL" 'calendar'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="panel panel-default" id="wb-checkbox">
+    <div class="panel-heading">wb-checkbox</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <p>Bind Property</p>
+        </div>
+        <div class="col-md-9">
+           {{checkedProperty}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>simple</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-checkbox name="chkBox" fieldLabel='Sample Label' checked=checkedProperty action="testAction2"
+           disabled=false required=true}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>disabled</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-checkbox fieldLabel='Disabled checkbox' checked=true disabled=true}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>readonly</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-checkbox fieldLabel='Readonly checkbox' checked=true readonly=true}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Without Label</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-checkbox checked=true}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="panel panel-default"  id="wb-checkbox-group">
+        <div class="panel-heading">Check Box Group</div>
+        <div class="panel-body">
+            {{wb-label fieldLabel='Checkbox group :'}}
+            {{wb-checkbox-group data=checkboxArray  action="checkboxGrpChange"}}
+            <br/>
+            {{wb-label fieldLabel='Checkbox group Disabled :'}}
+            {{wb-checkbox-group data=checkboxArray disabled=true}}
+        </div>
+    </div>
+</div>
+<div class="container">
+  <div class="panel panel-default" id="wb-selectbox">
+    <div class="panel-heading">wb-selectbox component</div>
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-6">
+      {{wb-selectbox fieldLabel="Simple Dropdown Element" labelAlign="inline" required=true content=codes placeholder="Choose your item" searchEnabled=false optionLabelPath="itemText" isCommentable=true}}
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Binded Value&nbsp;:&nbsp;<b>{{selectedItem.itemText}}</b></p>
+        </div>
+        <div class="col-md-4">
+      {{wb-selectbox content=codes value=selectedItem placeholder="Choose your item" allowClear=true optionLabelPath="itemText"}}
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-6">
+      {{wb-selectbox fieldLabel='Multi select option' content=codes multiple=true placeholder="Choose your item" allowClear=true optionLabelPath="itemText" optionValuePath="itemCode"}}
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-6">
+           {{wb-selectbox fieldLabel="AJAX Requests" placeholder="Choose from items"  value=selectedItem
+           typeaheadSearchingText="Searching items" typeaheadNoMatchesText="No items found for '%@'" typeaheadErrorText="Loading failed: %@" minimumInputLength=3 maximumInputLength=10 optionLabelPath="itemText" queryAction="queryItems"}}
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-md-6">
+           {{wb-selectbox content=groupedItems value=selectedItem2  multiple=true placeholder="Choose an Item"}}
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container">
+    <div class="panel panel-default"  id="wb-radio">
+        <div class="panel-heading">Check Box Group</div>
+        <div class="panel-body">
+            {{wb-label fieldLabel='Radio Button :'}}
+            {{wb-radio name='radioButtonEditable' data=radioBtnArray action="radioBtnChange" inline=true disabled=false}}
+            <br/>
+            {{wb-label fieldLabel='Radio Button Disabled :'}}
+            {{wb-radio name='radioButtonDisabled' data=radioBtnArray action="radioBtnChange" inline=false disabled=true}}
+
+            {{wb-radio fieldLabel="Read Only Radio Button" value="radio2" readonly=true data=radioBtnArray action="radioBtnChange" inline=false disabled=true}}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default"  id="wb-flash-message">
+        <div class="panel-heading">Flash Message</div>
+        <div class="panel-body">
+            {{wb-flash-message}}
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{#wb-button primary=true action='flashSuccessModal'}}Flash Success Modal{{/wb-button}}
+                {{#wb-button primary=true action='flashSuccessWithHugeMessage'}}Flash Success Modal With Big Message{{/wb-button}}
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="panel panel-default" id="wb-datepicker">
+    <div class="panel-heading">wb-datepicker</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <p>Bind Property</p>
+        </div>
+        <div class="col-md-9">
+           {{dateProperty}}
+
+           {{longValue}}
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>simple</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-datepicker fieldLabel='Sample Label' value=dateProperty action="testAction2" target=this required=true  isCommentable=true onCommentClickAction="onCommentClickAction" format='dd/MM/yyyy'}}
+           {{wb-datepicker fieldLabel='Only Future Dates' config=futureDateConfig value=dateProperty action="testAction2" target=this}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>disabled</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-datepicker fieldLabel='Sample Label' value=dateProperty disabled=true action="testAction2" target=this}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>date format</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-datepicker format='dd-MM-yyyy' fieldLabel='Sample Label' longValue=longValue action="testAction2" target=this}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>using long value</p>
+        </div>
+        <div class="col-md-9">
+           {{wb-datepicker fieldLabel='Sample Label' longValue=longValue config=futureDateConfig}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default" id="wb-button">
+    <div class="panel-heading">wb-button</div>
+    <div class="panel-body">
+    <p>
+      <div class="row">
+        <div class="col-md-12">Button with different types : </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              {{wb-button text='Default' action='testAction2' params="test" action='btnClick'}}
+              {{wb-button text='Primary' type="primary" action='btnClick'}}
+              {{wb-button text='Secondary' type="secondary" action='btnClick'}}
+              {{wb-button text='Alert' type="alert" action='btnClick'}}
+              {{wb-button text='Flat' type="flat-primary" action='btnClick'}}
+              {{wb-button text='Flat' type="flat-secondary" action='btnClick'}}
+              {{wb-button text='Flat' type="flat-alert" action='btnClick'}}
+          </div>
+      </div>
+    </p>
+    <p>
+      <div class="row">
+        <div class="col-md-12">Button with different Sizes : </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              {{wb-button text='Large' size="lg" action='btnClick'}}
+              {{wb-button text='Small' size="sm" action='btnClick'}}
+              {{wb-button text='Extra Small' size="xs" action='btnClick'}}
+              {{wb-button text='Block' size="block" action='btnClick'}}
+          </div>
+      </div>
+    </p>
+    <p>
+      <div class="row">
+        <div class="col-md-12">Disabled : </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              {{wb-button text='Disabled' disabled=true}}
+          </div>
+      </div>
+    </p>
+    <p>
+      <div class="row">
+        <div class="col-md-12">Button With Icons : </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              {{wb-button text='With Icon' icon="mdi mdi-checkbox-marked-circle"}}
+              {{wb-button icon="mdi icon-trash"}}
+              {{wb-button icon="mdi icon-circle-left"}}
+              {{wb-button icon="mdi icon-circle-right"}}
+              {{wb-button icon="mdi icon-save"}}
+              {{wb-button icon="mdi icon-pdf"}}
+              {{wb-button icon="mdi icon-excel" tooltipMsg="Export to excel"}}
+          </div>
+      </div>
+    </p>
+    <p>
+      <div class="row">
+        <div class="col-md-12">Async Button</div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              {{wb-button default='Async Button' action="testAsyncAction" async=true pending="Waiting for Promise to be resolved"}}
+          </div>
+      </div>
+    </p>
+    </div>
+  </div>
+
+  <div class="panel panel-default" id="wb-button">
+    <div class="panel-heading">wb-button</div>
+    <div class="panel-body">
+       <div class="row">
+        <div class="col-md-3">
+          <p>primary</p>
+        </div>
+        <div class="col-md-9">
+          {{#wb-button primary=true action='testAction2' target=this}}Submit{{/wb-button}}
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-3">
+          <p>enabled</p>
+        </div>
+        <div class="col-md-9">
+          {{#wb-button}}Yes{{/wb-button}}
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-3">
+          <p>disabled</p>
+        </div>
+        <div class="col-md-9">
+          {{#wb-button disabled=true}}No{{/wb-button}}
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-3">
+          <p>using icon</p>
+        </div>
+        <div class="col-md-9">
+          {{#wb-button icon='funnel'}}Icon{{/wb-button}}
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-3">
+          <p>using spritecssclass</p>
+        </div>
+        <div class="col-md-9">
+        {{#wb-button spriteCssClass='k-icon netherlandsFlag'}}SpriteCssClass{{/wb-button}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default" id="wb-toggle">
+    <div class="panel-heading">wb-toggle</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <p>Bind Property</p>
+        </div>
+        <div class="col-md-9">
+          {{toggleProperty2}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>simple</p>
+        </div>
+        <div class="col-md-9">
+          {{wb-toggle displayField="description" valueField="value" name='toggleButton' data=toggleData2 selected=toggleProperty2 action="testAction2"}}
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-md-3">
+          <p>With Array of Strings :: {{toggleProperty}}</p>
+        </div>
+        <div class="col-md-9">
+          {{wb-toggle name='toggleButton' data=toggleData selected=toggleProperty action="testAction2"}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">wb-badge</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <p>tags</p>
+        </div>
+        <div class="col-md-9">
+          {{wb-badge fieldLabel='GAM' labelType='label-default'}}
+          <br>
+          {{wb-badge fieldLabel='PFAM' labelType='label-primary'}}
+          <br>
+          {{wb-badge fieldLabel='Multi-Striped' labelType='label-success'}}
+          <br>
+          {{wb-badge fieldLabel='Striped' labelType='label-info'}}
+          <br>
+          {{wb-badge fieldLabel='Portfolio' labelType='label-warning'}}
+          <br>
+          {{wb-badge fieldLabel='FATCA' labelType='label-danger'}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- <div class="container"> -->
+<div class="container">
+  <div class="panel panel-default" id="wb-tooltip">
+    <div class="panel-heading">Flyout Components</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <p>Tooltip</p>
+        </div>
+        <div class="col-md-9">
+          {{#wb-tooltip content="This is a Sample Tooltip.This is a Sample Tooltip. This is a Sample Tooltip. This is a Sample Tooltip." width="250" target="span"}}
+             <span class='btn btn-primary'>Show Tooltip</span>
+          {{/wb-tooltip}}
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Tooltip For Text Box</p>
+        </div>
+        <div class="col-md-9">
+          {{#wb-tooltip content="<h1>Textbox</h1><br/><p>Dummy Tooltip for textbox.</p>" target="input" position='right'}}
+             {{wb-textbox  name="textTxt" type="text" size="10" placeholder="Please Input Text" value="" disabled=false readonly=false autofocus=false spellcheck=true required=true requireMsg="This field is required."}}
+          {{/wb-tooltip}}
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Flyout Component Window</p>
+        </div>
+        <div class="col-md-9">
+          {{wb-button action='openModal' text="Sample Flyout"}}
+          {{wb-button action='toggleSaveBtn' text="Toggle Flyout Save Btn"}}
+          <div class="{{unless displayFlyout 'hide'}}">
+            <div class="wb-loading-indicator-background"></div>
+            <div class="wb-flyout-container">
+                {{sample-flyout config=sampleFlyoutConfig close="closeFlyout"}}
+            </div>
+        </div>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Modal Error Box</p>
+        </div>
+        <div class="col-md-9">
+          <button {{action 'openDialog' 'error-dialog' 'application' 'dialog' }} class="btn btn-primary">
+            Error Dialog
+          </button>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Modal Warning Box</p>
+        </div>
+        <div class="col-md-9">
+          <button {{action 'openDialog' 'warn-dialog' 'application' 'dialog' }} class="btn btn-primary">
+            Warning Dialog
+          </button>
+        </div>
+      </div>
+      <br/>
+    </div>
+  </div>
+
+</div> <!-- <div class="container"> -->
+
+<div class="container">
+    <div class="panel panel-default"  id="wb-textarea">
+        <div class="panel-heading">Textarea</div>
+        <div class="panel-body">
+            {{wb-textarea   name="comment" fieldLabel="Text area" labelAlign="inline"
+              placeHolder="Add your comments here" rows="7" maxLength=400  cls="abc"
+              readonly=false disabled=false
+              required=true requiredMsg="This Field is required."
+              error=true errorMsg="Sample Error Msg." keyPressAction="textareaKeyPress" onChangeAction="textareaOnChange"}}
+
+          {{wb-textarea fieldLabel="Read Only Text area" placeHolder="Add your comments here"
+            rows="7" maxLength=400  cls="abc" readonly=true disabled=false
+            required=true requiredMsg="This Field is required."
+            value="Long TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong TextLong Text."
+            error=true errorMsg="Sample Error Msg."}}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default"  id="wb-textbox">
+        <div class="panel-heading">Textbox</div>
+        <div class="panel-body">
+            {{wb-textbox  name="textTxt" type="text" cls="primary"
+               multiple=true min=10 max=20 pattern='[A-Za-z]{3}'
+               labelAlign='inline' fieldLabel = "Text type TextBox with pattern" maxLength="10"
+               placeholder="Please Input Text" value=""
+               disabled=false readonly=false autofocus=false
+               required=true requiredMsg="Required field" error=false errorMsg=""
+               keyPressAction="textboxKeyPress" onChangeAction="textboxOnChange" isCommentable=true onCommentClickAction="onCommentClickAction"}}
+
+            {{wb-textbox  name="emailTxt" type="email" cls="primary"fieldLabel = "TextBox with Email Validation"
+               placeholder="Please Input Text"}}
+
+            {{wb-textbox  name="numberTxt" type="number" cls="primary"
+               multiple=true min=10 max=20
+               labelAlign='inline' fieldLabel = "Numeric TextBox"
+               placeholder="Please Input Text" value=""
+               disabled=false readonly=false autofocus=false
+               required=false requiredMsg="Required field" error=false errorMsg=""}}
+
+           {{wb-textbox  fieldLabel="ReadOnly TextBox"
+              placeholder="Please Input Text" value="This is ReadOnly text box."
+              disabled=false readonly=true autofocus=false
+              required=false requiredMsg="Required field" error=false errorMsg=""}}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default"  id="wb-tabs">
+        <div class="panel-heading">Sample implementations of Tab</div>
+        <div class="panel-body">
+            {{wb-tabs tabName="tabs" tabHeader="Tabs with default orientation" orientation="" sectionLevel=false dataSource=tabsDatasource}}
+            {{wb-tabs tabName="leftTabs" tabHeader="Tabs with left orientation" orientation="left" sectionLevel=false dataSource=leftTabsDatasource}}
+            {{wb-tabs tabName="rightTabs" tabHeader="Tabs with right orientation" orientation="right" sectionLevel=false dataSource=rightTabsDatasource}}
+            <!--{{wb-tabs tabName="sectionLevelTabs" tabHeader="Section level tabs" orientation="" sectionLevel=true dataSource=tabsDatasource}}-->
+        </div>
+    </div>
+</div>
+
+<!-- Nav Bar - Collapsible Panel : Start -->
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+          <h3 class="panel-title"> wb-panelbar (Nav Bar - Collapsible Panel)</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p> This one is default/empty panel bar.<br/></p>
+          </div>
+          {{#wb-panelbar title="Panel 1"}}
+            An empty panel bar.
+          {{/wb-panelbar}}
+        </div>
+
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p> This one is default/empty panel bar rendered in collapsed mode. Using config "collapsed : true".<br/></p>
+          </div>
+          {{#wb-panelbar title="Panel 2" collapsed=true}}
+            An empty panel bar.
+          {{/wb-panelbar}}
+        </div>
+
+
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p>This one is default/empty panel bar rendered as non collapsible mode. Using config "collapsible : false".<br/></p>
+          </div>
+          {{#wb-panelbar title="Panel 3" collapsible=false}}
+            An empty panel bar.
+          {{/wb-panelbar}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p> This one is default panel bar with holding "wb-navlist" component.<br/></p>
+          </div>
+          {{#wb-panelbar title="Panel holding 'wb-navlist' "}}
+            {{wb-navlist data=productSourceTestList click="clickActionTest"}}
+          {{/wb-panelbar}}
+        </div>
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p> This one is default panel bar with titleCls config.<br/></p>
+          </div>
+          {{#wb-panelbar title="Panel holding 'wb-navlist' " titleCls="static-info-header"}}
+            {{wb-navlist data=productSourceTestList click="clickActionTest"}}
+          {{/wb-panelbar}}
+        </div>
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p> More/Less Panel. (wb-moreless-panel) <br></p>
+          </div>
+          {{#wb-moreless-panel}}
+            {{wb-navlist data=productSourceTestList click="clickActionTest"}}
+          {{/wb-moreless-panel}}
+        </div>
+        <div class="col-md-3">
+          <div style="background-color:lavender;">
+            <p> This one is default panel bar with headerCls and titleUrl config.<br/></p>
+          </div>
+          {{#wb-panelbar title="Panel holding 'wb-navlist' " titleUrl="todos" headerCls="static-info-header"}}
+            {{wb-navlist data=productSourceTestList click="clickActionTest"}}
+          {{/wb-panelbar}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nav Bar - Collapsible Panel : End -->
+
+<div class="container">
+    <div class="panel panel-primary" id="wb-menu">
+        <div class="panel-heading">
+          <h3 class="panel-title"> wb-menu (Menu)</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-sd-6">
+                   {{wb-menu menuLabel="TextMenu" menuId="wb-menu" menuList=menuListData action='deleteAction'}}
+                </div>
+                <div class="col-md-3 col-sd-6">
+                </div>
+                <div class="col-md-3 col-sd-6">
+                   {{wb-menu menuLabel="CheckBox Menu" multiSelect=true menuId="wb-check-menu" menuList=menuCheckListData
+                   singleSelectText="Menu item selected" multiSelectText="Menu items selected" selectedMenus=selectedMenusList action='editAction' optionTextPath="countryName" optionValuePath="countryCode"}}
+                </div>
+                <div class="col-md-3 col-sd-6">
+                  Selected List:
+                  <ul>
+                      {{#each selectedMenusList as |menu|}}
+                          <li>{{menu.countryName}}</li>
+                      {{/each}}
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary" id="wb-file-upload">
+        <div class="panel-heading">
+          <h3 class="panel-title"> wb-file-upload (Document Upload)</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-sd-12">
+                   {{wb-file-upload placeHolder="No File Selected" maxSize=4096 acceptedType="audio/*"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary" id="wb-grid">
+        <div class="panel-heading">
+          <h3 class="panel-title"> wb-grid</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 col-sd-12">
+                    {{#wb-button primary=true action='toggleGridLoading'}}Toggle Grid Loading{{/wb-button}}
+                    {{#wb-button action='toggleGridSelection'}}SingleSelect: {{gridSingleSelect}}{{/wb-button}}
+                    {{#wb-button action='resetGridFilters'}}Undo Filters{{/wb-button}}
+                    {{#wb-button action='emptyGridData'}}Empty Grid{{/wb-button}}
+                    {{#wb-button action='gridAction'}}Data Grid{{/wb-button}}
+                    {{wb-grid loading=gridLoading config=standardGridConfig data=gridData cellClick="cellClick" gridPagination="gridPagination" checkboxClick="checkboxClick" singleSelect=gridSingleSelect actionMenuOpen="actionMenuOpen" resetFilters=resetFiltersVal}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary" id="wb-rag-box">
+        <div class="panel-heading">
+          <h3 class="panel-title"> wb-rag-box (RAG box)</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3 col-sd-3">
+                   {{#wb-rag-box action='boxClick' boxName='RAG1' selectedBox=selectedBoxName boxBackground="#7CBF58" boxData=53 boxBackground="#7CBF58"}}
+                      <h4>RAG 1</h4>
+                      <span>53</span>
+                   {{/wb-rag-box}}
+                </div>
+                <div class="col-md-3 col-sd-3">
+                   {{#wb-rag-box action='boxClick' boxName='RAG2' selectedBox=selectedBoxName boxBackground="#7CBF58" boxData=34 boxBackground="#7CBF58"}}
+                      <h4>RAG 2</h4>
+                      <span>34</span>
+                   {{/wb-rag-box}}
+                </div>
+                <div class="col-md-3 col-sd-3">
+                   {{#wb-rag-box action='boxClick' boxName='RAG3' selectedBox=selectedBoxName boxBackground="#7CBF58" boxData=12 boxBackground="#D66233"}}
+                      <h4>RAG 3</h4>
+                      <span>12</span>
+                   {{/wb-rag-box}}
+                </div>
+                <div class="col-md-3 col-sd-3">
+                   {{#wb-rag-box action='boxClick' boxName='RAG4' selectedBox=selectedBoxName boxBackground="#7CBF58" boxData=23 boxBackground="#D66233"}}
+                      <h4>RAG 4</h4>
+                      <span>23</span>
+                   {{/wb-rag-box}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default"  id="wb-alert-banner">
+        <div class="panel-heading">Alert Banner</div>
+        <div class="panel-body">
+            {{wb-button text='Success Alert' type="primary" action='showSuccessAlert'}}
+            {{wb-button text='Failure Alert' type="primary" action='showErrorAlert'}}
+            {{wb-button text='Info Alert' type="primary" action='showInfoAlert'}}
+            {{wb-button text='Warning Alert' type="primary" action='showWarningAlert'}}
+
+            {{wb-alert-banner message=alertObj.message type=alertObj.type}}
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default"  id="wb-alert-banner">
+        <div class="panel-heading">Copy To Clipboard</div>
+        <div class="panel-body">
+            {{wb-copy-to-clipboard-button text="Text Copied to cliboard from wb-copy-to-clipboard-button" label="Copy To Clipboard"}}
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-primary" id="pagination">
+        <div class="panel-heading">
+          <h3 class="panel-title">Simple Pagination</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6 col-sd-12">
+                   <div class="list-group">
+                   {{#each comments as |item|}}
+                   <div class="list-group-item">
+                   <span>{{item.updatedOn}}</span><br/>
+                   <p>{{item.comment}}</p>
+                   </div>
+                   {{/each}}
+                   {{wb-pagination infinityModel=comments}}
+                   </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Client Static Info Panel : End -->
+</div><!--/Main -->
+</div><!--/row-offcanvas -->
+{{outlet 'modal'}}
+{{outlet 'dialog'}}
+ --}}
